@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
+</head>
+<body>
+	<section>
+	 <div class="container" th:each="d:${m}">
+      <div class="card">
+        <div class="card_title" >
+          <h1>Match</h1>
+          <p id="match_type">T20 1 of 60</p>
+        </div>
+        <div class="match_info">
+          <div class="team_name">
+            <div class="team1">
+              <img
+                src="https://ssl.gstatic.com/onebox/media/sports/logos/JTre94vh6WJeLmIL-Dfc1g_96x96.png"
+                alt=""
+              />
+              <h3 th:text="${d.team1}">MI</h3>
+            </div>
+            <div class="team2">
+              <img
+                src="https://ssl.gstatic.com/onebox/media/sports/logos/MxXIt0k-eorEn6yOhD-KBA_96x96.png"
+                alt=""
+              />
+              <h3 th:text="${d.team2}">RCB</h3>
+              
+            </div>
+          </div>
+
+          <div class="vs">
+            <p>vs</p>
+          </div>
+          <div class="date_time">
+            <h3 class="inline" th:text="${d.total1}+'-'">123</h3><h3 class="inline" th:text="${d.t1over}"></h3><h3 class="inline" th:text="'('+${d.t1wicket}+')'">123</h3><br><br>
+           <h3 class="inline" th:text="${d.total2}+'-'">123</h3><h3 class="inline" th:text="${d.t2over}"></h3><h3 class="inline" th:text="'('+${d.t2wicket}+')'">123</h3>
+          </div>
+         
+        </div>
+        <div class="seeDetails">
+          <a href=""
+          th:href="@{/user/viewmatch1(matchid=${d.mId})}"
+            >See All
+            <span><i class="fa fa-caret-down" aria-hidden="true"></i> </span
+          ></a>
+        </div>
+      </div>
+    </div>
+
+	
+	</section>
+</body>
+</html>

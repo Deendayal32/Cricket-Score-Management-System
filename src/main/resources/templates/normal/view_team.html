@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
+</head>
+<body>
+	<section>
+	<div class="card mr-5 ml-3">
+		<div class="card-body">
+			<h1 class="text-center">TEams</h1>
+			<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Team Id</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Team Info</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="c : ${teams}">
+      <th scope="row" th:text="${c.teamId}">1</th>
+      <td th:text="${c.name}">Mark</td>
+      <td th:text="${c.info}">Otto</td>
+      <td th:text="${c.phone}">@mdo</td>
+    </tr>
+   
+  </tbody>
+</table>
+
+
+		</div>
+	</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
+</head>
+<body>
+	<section>
+		<div class="card ">
+		<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-success" role="alert">
+ 							 <p th:text="${session.message.content}"></p>
+ 							 <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+			<div class="card-body">
+				<h1 class="text-center">
+					<div class="container-fluid mt-1">
+						<div class="row">
+							<div class="col-md-10 offset-md-1">
+								<form th:action="@{/user/saveteam}" method="post" action="#" th:object="${team}"
+									enctype="multipart/form-data"
+			
+									
+									class="mt-2"
+									>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text ">
+											Team  
+											</div>
+											
+										</div>
+											<input type="text" id="firstName" name="name" placeholder="enter name here" class="form-control" />
+											
+									</div>
+									<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text ">
+												Team Info
+											</div>
+									</div>
+											<input type="text" id="teaminfo" name="Teaminfo" placeholder="enter Team Info here" class="form-control" />
+											
+									</div>
+										
+									
+												
+												<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text ">
+												Phone No.
+											</div>
+												</div>
+												<input type="number" id="phone" name="phone" placeholder="enter phone number" class="form-control" />
+											
+												<div class="input-group mt-3">
+										<div class="input-group-prepend">
+											<div class="input-group-text ">
+												Choose profile pic
+											</div>
+												<div class="custom-file">
+													<input type="file" name="image" />
+												</div>
+									</div>
+										
+												<div class="container text-center">
+												<button class="btn btn-outline-primary">Save Team</button>
+												</div>
+								
+								</form>
+							</div>
+						</div>
+					</div>
+				</h1>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
