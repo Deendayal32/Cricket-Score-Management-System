@@ -317,13 +317,16 @@ public class UserController {
 					ballPerfo.setPlayerId(bid);
 					ballPerfo.setRuns(bperfm.getRuns()+run+b.getExtra());
 					ballPerfo.setWicket(player.getWiket());
+					player.setbRun(bperfm.getRuns()+run+b.getExtra());
 					if(match.getBall()==6) 
 					{
 						int a=(int) bperfm.getOver();
 						ballPerfo.setOver(a+1);
+						player.setBover(0);
 					}
 					else {
 					ballPerfo.setOver(bperfm.getOver()+0.1f);
+					player.setBover(ballPerfo.getOver());
 					}
 					ballPerfoRepo.save(ballPerfo);
 					
@@ -335,6 +338,8 @@ public class UserController {
 					ballPerfo.setPlayerId(bid);
 					ballPerfo.setRuns(b.getRun()+b.getExtra());
 					ballPerfo.setOver(0.1f);
+					player.setbRun(ballPerfo.getRuns());
+					player.setBover(ballPerfo.getOver());
 					ballPerfo.setWicket(player.getWiket());
 					ballPerfoRepo.save(ballPerfo);
 				}

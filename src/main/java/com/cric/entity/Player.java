@@ -8,6 +8,8 @@ public class Player {
 	private String striker;
 	private String nonstriker;
 	private String bowler;
+	private int bRun;
+	private float bover;
 	private int over;
 	private int sRun;
 	private int nSRun;
@@ -21,6 +23,19 @@ public class Player {
 	public List<String> thisOver=new ArrayList<>();
 	
 	
+    
+	public int getbRun() {
+		return bRun;
+	}
+	public void setbRun(int bRun) {
+		this.bRun = bRun;
+	}
+	public float getBover() {
+		return bover;
+	}
+	public void setBover(float bover) {
+		this.bover = bover;
+	}
 	public int getOver() {
 		return over;
 	}
