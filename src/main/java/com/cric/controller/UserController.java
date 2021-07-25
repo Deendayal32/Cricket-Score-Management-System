@@ -363,7 +363,8 @@ public class UserController {
 			    	player.setSball(x);
 			    }
 			}
-		    
+		   float crt=match.getTotal()/match.getOver();
+		    model.addAttribute("crt", crt);
 			model.addAttribute("player", player);
 			System.out.println(b.getRun());
 			String userName=principal.getName();

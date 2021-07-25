@@ -1,4 +1,4 @@
-!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
 <head>
 <meta charset="ISO-8859-1">
@@ -16,6 +16,7 @@
 	</center>
 	<br><br><br>
 	</div>
+	<p th:text="${crt}"></p>
 	<div class="container-fluid mt-10" th:if="${match.inning==1}">
 	<h2 class="pull-right" th:text="${match.team1}"></h2><h2 class="inline" >  CRR</h2><br>
 	<h2 class="inline"
