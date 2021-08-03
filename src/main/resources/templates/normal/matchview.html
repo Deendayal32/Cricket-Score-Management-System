@@ -6,8 +6,9 @@
 </head>
 <body>
 	<section>
-	<h1 >hello deenu</h1>congratulation you won match 
-	
+	<div th:each="d:${bat} " th:if="${d.inning==1}">
+	<h1 th:text="${d.playerName}"></h1><p th:text="${d.runs}"></p><p th:text="${d.balls}"></p>
+	</div>
 	
 	</section>
 </body>

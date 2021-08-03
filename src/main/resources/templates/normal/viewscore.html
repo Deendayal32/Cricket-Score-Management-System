@@ -7,11 +7,13 @@
 <body>
 	<section>
 	 <div class="container" th:each="d:${m}">
-      <div class="card">
+      <div class="card1">
+      <span th:text="${d.date}"></span>
         <div class="card_title" >
-          <h1>Match</h1>
-          <p id="match_type">T20 1 of 60</p>
+          <h1>Match On<span th:text="${' '+d.groundName}"></span></h1>
+          <p id="match_type" th:text="${'T'+d.over}">T20 1 of 60</p>
         </div>
+        
         <div class="match_info">
           <div class="team_name">
             <div class="team1">
@@ -40,6 +42,7 @@
           </div>
          
         </div>
+        
         <div class="seeDetails">
           <a href=""
           th:href="@{/user/viewmatch1(matchid=${d.mId})}"

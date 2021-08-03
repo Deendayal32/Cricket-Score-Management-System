@@ -105,10 +105,10 @@ body{
 
 
 
-.card {
+.card1 {
   background-color: #fff;
   width: 400px;
-  height: 200px;
+  height: 250px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 10px;
@@ -139,7 +139,7 @@ body{
   margin-right: 10px;
 }
 
-.card h1 {
+.card1 h1 {
   font-size: 20px;
 }
 
@@ -149,9 +149,9 @@ body{
 
 .vs {
   background-color: #c7c6cb;
-  width: 25px;
-  height: 25px;
-  border-radius: 40px;
+  width: 30px;
+  height: 35px;
+  border-radius: 50px;
 }
 .vs p {
   padding: 2px 5px;

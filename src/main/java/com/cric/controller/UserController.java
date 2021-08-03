@@ -262,7 +262,6 @@ public class UserController {
 				player.thisOver.add(b.getBallType());
 			}
 			else if(noball) {
-				b.setRun(0);
 				b.setExtra(1);
 				b.setBallType("NB");
 				player.thisOver.add(b.getBallType());			
@@ -363,7 +362,7 @@ public class UserController {
 			    	player.setSball(x);
 			    }
 			}
-		   float crt=match.getTotal()/match.getOver();
+		   float crt=match.getTotal()/match.getT1over();
 		    model.addAttribute("crt", crt);
 			model.addAttribute("player", player);
 			System.out.println(b.getRun());
@@ -386,7 +385,7 @@ public class UserController {
 			if(match.getInning()==1) {
 			match.setTotal1(match.getTotal());
 			match.setT1over(match.getT1over()+0.1f);
-			matchRepo.save(match);
+			
 			}
 			else 
 			{
@@ -402,7 +401,7 @@ public class UserController {
 				if(match.getInning()==1) 
 				{
 					match.setT1over(player.getOver());
-					if(player.getOver()<2 ) {
+					if(player.getOver()<match.getOver() ) {
 						
 						return "normal/nextbowler";
 					}
@@ -410,7 +409,7 @@ public class UserController {
 				if( match.getInning()==2) {
 					int x=(int)match.getT2over();
 					match.setT2over(x+1);
-				if(player.getOver()<2) 
+				if(player.getOver()<match.getOver()) 
 				{
 					
 					return "normal/nextbowler";
@@ -419,7 +418,7 @@ public class UserController {
 			}
 			if(match.getInning()==2) 
 			{
-				if(match.getTotal1()-match.getTotal()<0 || player.getWiket()==10 || player.getOver()==2) 
+				if(match.getTotal1()-match.getTotal()<0 || player.getWiket()==10 || player.getOver()==match.getOver()) 
 				{
 					return "normal/congratulation";
 				}
@@ -429,7 +428,7 @@ public class UserController {
 				}
 			}
 			if(match.getInning()==1) {
-			if(player.getWiket()==10 || player.getOver()==2 ) 
+			if(player.getWiket()==10 || player.getOver()==match.getOver() ) 
 			{
 				player.setWiket(0);
 				player.setOver(0);
@@ -439,6 +438,7 @@ public class UserController {
 				return "normal/player";
 			}
 			}
+			matchRepo.save(match);
 			return "normal/scorecard";
 		}catch(Exception e) 
 		{
@@ -553,8 +553,10 @@ public class UserController {
 		
 		String userName=principal.getName();
 		User user= userRepo.getUserByUserName(userName);
+		List<BatPerformance> b=batRepo.findByMatchId(id);
 		model.addAttribute("user", user);
 		model.addAttribute("title","Add Team player");
+		model.addAttribute("bat", b);
 		String tname=(String) session.getAttribute("tname");
 		ballPerfoRepo.findAll();
 		return "normal/matchview";

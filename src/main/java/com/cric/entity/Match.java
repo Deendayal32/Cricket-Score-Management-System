@@ -1,5 +1,8 @@
 package com.cric.entity;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,7 +20,7 @@ public class Match implements Comparable<Match> {
 	private String team1;
 	private int total1;
 	private int total2;
-	private int over=2;
+	private int over;
 	private float t1over;
 	private float t2over;
 	private int t1wicket;
@@ -25,8 +28,24 @@ public class Match implements Comparable<Match> {
 	private int inning;
 	private int total;
 	private int ball;
+	private LocalDate date=java.time.LocalDate.now();
+	private String groundName;
 
 	
+	
+
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	public String getGroundName() {
+		return groundName;
+	}
+	public void setGroundName(String groundName) {
+		this.groundName = groundName;
+	}
 	public int getT1wicket() {
 		return t1wicket;
 	}
